@@ -666,6 +666,10 @@
   document.getElementById('review-modal').addEventListener('click', function(e) {
     if (e.target === this) closeReviewModal();
   });
+  // 결제완료 페이지 등에서 ?write_review=1 로 넘어오면 후기 작성창을 바로 띄운다
+  if (new URLSearchParams(location.search).get('write_review') === '1') {
+    setTimeout(openReviewModal, 500);
+  }
 
   function paintStars(v) {
     document.querySelectorAll('#rv-star-pick span').forEach(s => {
