@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>라이프코드 해커 — 사주 × 무의식 자동 진단 리포트</title>
+<link rel="stylesheet" href="lifecode/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="page">
+
+  <!-- ════════════ 섹션 1 · 히어로 ════════════ -->
+  <section class="hero" data-screen-label="01 히어로">
+    <img class="hero-art" src="lifecode/assets/brand-circle.png" alt="天地人 · 無意識">
+    <div class="hero-fade"></div>
+    <div class="wrap hero-inner reveal in">
+      <p class="eyebrow">天地人 · 無意識</p>
+      <h1 style="font-size:35px">사주는 <span class="em">시작</span>일 뿐입니다.<br>무의식이, <span class="em">진짜 인생</span>을 움직입니다.</h1>
+      <p class="sub">아직도 '운이 언제 트이는지'만 물으십니까.<br>진짜 질문은 따로 있습니다. <b>"왜 그 패턴이 반복되는가."</b></p>
+      <p class="body">수많은 명리 분석이 도달한 결론은 하나였습니다.<br>운은 맞히는 게 아니라, <em>바꾸는 것</em>입니다.</p>
+    </div>
+    <div class="trustbar reveal in" style="--d:.2s; font-size:14px">
+      <span>13개 무의식 패턴</span>
+      <span class="dot"></span>
+      <span>15개 섹션 분량</span>
+      <span class="dot"></span>
+      <span>5분 이내 이메일 발송</span>
+    </div>
+    <div class="scrollcue">
+      <span class="arr"></span>
+    </div>
+  </section>
+
+  <!-- ════════════ 섹션 2 · 탄생 스토리 ════════════ -->
+  <section class="sec wrap" data-screen-label="02 탄생스토리">
+    <p class="eyebrow reveal">WHY WE BUILT THIS</p>
+    <h2 class="head reveal" style="--d:.05s">저도, '사주 탓'을<br>하던 사람이었습니다.</h2>
+    <div class="reveal story-img-wrap" style="--d:.1s">
+      <div class="story-img-frame">
+        <img src="lifecode/assets/brand-circle.png" alt="天地人 · 무의식의 지도" class="story-img">
+        <div class="story-img-overlay"></div>
+        <div class="story-img-badge">天地人 · 無意識</div>
+      </div>
+      <p class="photo-cap">사주 팔자 속에 새겨진 무의식의 지도</p>
+    </div>
+    <p class="lead reveal" style="--d:.12s; margin-top:26px">
+      "올해는 흉운이에요"라는 말을 들을 때마다 무력했습니다.<br>
+      그래서 뭘 어떻게 하라는 건지는 아무도 알려주지 않았으니까요.<br>
+      칼융을 만나고 알았습니다. 무의식을 의식으로 끌어올리지 않으면,
+      우리는 그걸 '운명'이라 부른다는 것을. 오랜 분석 끝에 확인했습니다.
+      <strong>같은 사주라도, 자기 무의식을 다룬 사람의 1년은 전혀 달랐습니다.</strong>
+    </p>
+  </section>
+
+  <div class="wrap reveal"><div class="ornament"><i></i></div></div>
+
+  <!-- ════════════ 섹션 3 · 기존 대안 해체 ════════════ -->
+  <section class="sec wrap" data-screen-label="03 대안해체">
+    <p class="eyebrow reveal">YOU'VE TRIED…</p>
+    <h2 class="head reveal" style="--d:.05s">당신이 지금까지<br>해본 것들.</h2>
+    <div class="alt">
+      <div class="alt-card card-muted reveal" style="--d:.04s">
+        <span class="idx serif-num">01</span>
+        <div><p class="t">점집</p><p class="d">맞아도 거기서 끝. "조심하세요"는 들었는데, 그래서 뭘 어떻게?</p></div>
+      </div>
+      <div class="alt-card card-muted reveal" style="--d:.09s">
+        <span class="idx serif-num">02</span>
+        <div><p class="t">AI 사주</p><p class="d">그럴듯한데, 누구한테나 하는 말 같고.</p></div>
+      </div>
+      <div class="alt-card card-muted reveal" style="--d:.14s">
+        <span class="idx serif-num">03</span>
+        <div><p class="t">990원 리포트</p><p class="d">쌉니다. 딱 990원어치.</p></div>
+      </div>
+      <div class="alt-card us reveal" style="--d:.2s">
+        <span class="idx serif-num">✦</span>
+        <div><p class="t">공통점</p><p class="d">전부 <b>진단에서 멈춥니다.</b> "귀인을 만납니다" 이후, 처방이 없습니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ 섹션 4 · 우리의 다름 (USP) ════════════ -->
+  <section class="sec wrap" data-screen-label="04 USP">
+    <p class="eyebrow reveal">OUR DIFFERENCE</p>
+    <h2 class="head reveal" style="--d:.05s">운세는 기본.<br><span class="gold">무의식 뿌리까지 파고듭니다.</span></h2>
+    <p class="lead reveal" style="--d:.1s; margin-bottom:34px">
+      올해 흐름(운세)은 기본, <span class="gold">연애·돈·습관이 왜 반복되는지</span>
+      그 무의식의 뿌리까지. 사주 한 번으로 운세와 패턴을 동시에 꿰뚫습니다.
+      합충파해에서 대운·세운까지 — 무의식이 <strong>언제 발동하는지</strong> 짚어드립니다.
+    </p>
+    <div class="flow">
+      <div class="flow-node reveal" style="--d:.04s"><div class="k">운세 (대운·세운)</div><div class="v">올해의 흐름</div></div>
+      <div class="flow-arrow reveal" style="--d:.1s"><span class="ln"></span><span class="w">+</span><span class="tip">▼</span></div>
+      <div class="flow-node reveal" style="--d:.14s"><div class="k">無意識 패턴</div><div class="v">연애 · 돈 · 습관</div></div>
+      <div class="flow-arrow reveal" style="--d:.2s"><span class="ln"></span><span class="w">해킹하면</span><span class="tip">▼</span></div>
+      <div class="flow-node result reveal" style="--d:.24s"><div class="k">라이프코드 해킹</div><div class="v">반복 탈출</div><div class="sub">세상에 단 하나, 당신만의 리포트</div></div>
+    </div>
+  </section>
+
+  <!-- ════════════ 섹션 5 · 근거 ════════════ -->
+  <section class="sec wrap" data-screen-label="05 근거">
+    <p class="eyebrow reveal">THE EVIDENCE</p>
+    <h2 class="head reveal" style="--d:.05s">"타고난 건 못 바꾼다"는 말,<br><span class="gold">뇌과학이 반박합니다.</span></h2>
+    <div class="evi">
+      <div class="evi-card card reveal" style="--d:.04s">
+        <span class="evi-ico"><i data-lucide="infinity"></i></span>
+        <div><p class="et">칼 융</p><p class="ed">무의식을 의식화하지 않으면, 그것이 삶을 이끈다.</p></div>
+      </div>
+      <div class="evi-card card reveal" style="--d:.08s">
+        <span class="evi-ico"><i data-lucide="waypoints"></i></span>
+        <div><p class="et">신경가소성</p><p class="ed">뇌는 평생 재배선됩니다. 반복하면 길이 바뀝니다.</p></div>
+      </div>
+      <div class="evi-card card reveal" style="--d:.12s">
+        <span class="evi-ico"><i data-lucide="repeat"></i></span>
+        <div><p class="et">자기충족 예언</p><p class="ed">"나는 안 풀린다"는 믿음이, 안 풀리는 행동을 만듭니다.</p></div>
+      </div>
+      <div class="evi-card card reveal" style="--d:.16s">
+        <span class="evi-ico"><i data-lucide="replace"></i></span>
+        <div><p class="et">인지행동(CBT)</p><p class="ed">생각을 바꾸면 행동이 바뀐다. 현대 심리치료의 표준.</p></div>
+      </div>
+      <div class="evi-card card reveal" style="--d:.2s">
+        <span class="evi-ico"><i data-lucide="scan-eye"></i></span>
+        <div><p class="et">선택적 주의</p><p class="ed">무의식이 바뀌면, 같은 세상에서 다른 기회가 보이기 시작합니다.</p></div>
+      </div>
+    </div>
+    <p class="evi-proof reveal" style="--d:.24s">이 패턴, 누적 분석에서 반복 확인됨</p>
+  </section>
+
+  <div class="wrap reveal"><div class="ornament"><i></i></div></div>
+
+  <!-- ════════════ 섹션 6 · 리포트 구성 ════════════ -->
+  <section class="sec wrap" data-screen-label="06 미리보기">
+    <p class="eyebrow reveal">WHAT YOU RECEIVE</p>
+    <h2 class="head reveal" style="--d:.05s">총 15개 섹션,<br>손에 쥐게 되는 것.</h2>
+    <ul class="checklist">
+      <li class="reveal" style="--d:.04s"><span class="mk">01</span><span><b>내 사주 원국 + 오행 에너지 지도</b> <span class="dim">시주~년주 만세력 정확 분석</span></span></li>
+      <li class="reveal" style="--d:.07s"><span class="mk">02</span><span><b>인생 핵심 코드 3가지</b> <span class="dim">나라는 사람의 에너지 구조</span></span></li>
+      <li class="reveal" style="--d:.10s"><span class="mk">03</span><span><b>연애·관계 무의식 패턴</b> <span class="dim">왜 같은 연애를 반복하는가</span></span></li>
+      <li class="reveal" style="--d:.13s"><span class="mk">04</span><span><b>돈이 막히는 진짜 이유</b> <span class="dim">재물 무의식 패턴 해킹</span></span></li>
+      <li class="reveal" style="--d:.16s"><span class="mk">05</span><span><b>알면서도 못 바꾸는 것들</b> <span class="dim">습관·행동의 무의식 작동 방식</span></span></li>
+      <li class="reveal" style="--d:.19s"><span class="mk">06</span><span><b>올해 + 내년 무의식 발동 시점</b> <span class="dim">합충파해·대운·세운 분석</span></span></li>
+      <li class="reveal" style="--d:.22s"><span class="mk more">+9</span><span class="faint">직업·건강, 가족관계, 내년 월별 캘린더, 이달 실행 과제, 나만의 정화 선언문 등 — 총 <b style="color:var(--gold-1)">15개 섹션</b></span></li>
+    </ul>
+
+    <!-- 보고서 샘플 발췌 -->
+    <div class="samples reveal" style="--d:.18s">
+      <p class="eyebrow" style="margin-bottom:16px">SAMPLE — 이런 톤으로 도착합니다</p>
+      <div class="sample-card">
+        <span class="stag" style="color:var(--gold-1)">핵심 코드</span>
+        <p class="stxt"><b>코드 1. 묵직한 산의 결</b><br>당신은 흔들리지 않는 큰 산으로 태어났습니다. 위기 상황에서 모두가 당신을 찾는 이유가 여기에 있습니다.</p>
+      </div>
+      <div class="sample-card">
+        <span class="stag" style="color:#f472b6">연애 무의식</span>
+        <p class="stxt">진짜로 끌리는 사람을 만나면 표현이 막히고, 표현이 잘 되는 관계에 들어가면 끌림이 식어요. 이게 반복됐다면 우연이 아닙니다. 무의식 코드가 그렇게 짜여 있습니다.</p>
+      </div>
+      <div class="sample-card">
+        <span class="stag" style="color:var(--cyan)">월별 캘린더</span>
+        <p class="stxt"><b>1월 — 한 호흡 고르는 달</b><br>빠른 결정보다 한 주 정도 묵혀두고 다시 보는 습관이 도움이 됩니다.</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="--d:.24s; text-align:center; margin-top:28px">
+      <a class="cta-soft" href="#price" data-cta>이 리포트, 내 걸로 받기 →</a>
+    </div>
+  </section>
+
+  <!-- ════════════ 섹션 7 · 누구를 위한 것 ════════════ -->
+  <section class="sec wrap" data-screen-label="07 타겟" id="who">
+    <p class="eyebrow reveal">HONESTLY…</p>
+    <h2 class="head reveal" style="--d:.05s">솔직히, 이런 분께는<br>권하지 않습니다.</h2>
+    <div class="fit">
+      <div class="fit-row no reveal" style="--d:.04s"><span class="sym">✕</span><span class="ft">남 탓이 더 편한 분</span></div>
+      <div class="fit-row no reveal" style="--d:.08s"><span class="sym">✕</span><span class="ft">"원래 난 이런 사람"이라고 믿고 싶은 분</span></div>
+      <div class="fit-row yes reveal" style="--d:.14s"><span class="sym">✓</span><span class="ft">왜 늘 같은 연애·돈·습관이 반복되는지 알고 싶은 분</span></div>
+      <div class="fit-row yes reveal" style="--d:.18s"><span class="sym">✓</span><span class="ft">같은 자리에서 맴도는 게 지긋지긋한 분</span></div>
+      <div class="fit-row yes reveal" style="--d:.22s"><span class="sym">✓</span><span class="ft">'사주 탓' 그만하고 인생 튜닝을 시작할 분</span></div>
+    </div>
+  </section>
+
+  <!-- ════════════ 섹션 · 후기 ════════════ -->
+  <section class="sec wrap" id="reviews" data-screen-label="후기">
+    <p class="eyebrow reveal">REAL REVIEWS</p>
+    <h2 class="head reveal" style="--d:.05s">먼저 받아보신 분들의<br><span class="gold">솔직한 후기.</span></h2>
+
+    <!-- 별점 요약 -->
+    <div id="rv-summary" class="reveal" style="--d:.08s; display:none;">
+      <div class="card" style="display:flex;align-items:center;gap:18px;padding:20px 22px;margin-bottom:22px;">
+        <div style="text-align:center;flex:none;">
+          <div id="rv-avg" style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;color:var(--gold-1);line-height:1;"></div>
+          <div id="rv-stars-avg" style="color:var(--gold-2);font-size:16px;letter-spacing:2px;margin-top:4px;"></div>
+        </div>
+        <div style="border-left:1px solid var(--gold-line);padding-left:18px;">
+          <div id="rv-count" style="font-size:15px;font-weight:700;color:var(--paper);margin-bottom:4px;"></div>
+          <div style="font-size:13px;color:var(--paper-faint);line-height:1.6;">보고서를 받아보고<br>직접 작성한 후기입니다.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 후기 카드 목록 -->
+    <div id="rv-list" style="display:flex;flex-direction:column;gap:12px;">
+      <div style="text-align:center;padding:30px 0;color:var(--paper-faint);font-size:14px;">불러오는 중...</div>
+    </div>
+
+    <!-- 더보기 버튼 -->
+    <div id="rv-more-wrap" style="display:none;text-align:center;margin-top:16px;">
+      <button onclick="showMoreReviews()" style="background:none;border:1px solid var(--gold-line);color:var(--gold-2);border-radius:10px;padding:11px 24px;font-family:var(--font-main);font-size:14px;cursor:pointer;">후기 더 보기</button>
+    </div>
+
+    <!-- 후기 남기기 + 전체 후기 페이지 -->
+    <div class="reveal" style="--d:.2s;text-align:center;margin-top:28px;">
+      <button onclick="openReviewModal()" class="cta-soft" style="font-size:14px;">✍ 보고서 받아보셨나요? 후기 남기기</button>
+      <div style="margin-top:16px;">
+        <a href="reviews.html" style="color:var(--gold-2,#e8c879);font-size:14px;font-weight:700;text-decoration:none;border-bottom:1px solid rgba(201,164,92,0.45);padding-bottom:2px;">📖 실제 후기 전체 모아보기 →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap reveal"><div class="ornament"><i></i></div></div>
+
+  <!-- ════════════ 섹션 8 · 가격 ════════════ -->
+  <section class="sec wrap" data-screen-label="08 가격" id="price">
+    <p class="eyebrow reveal">PRICE & BONUS</p>
+    <h2 class="head reveal" style="--d:.05s">점집 한 번 값도 안 되는 돈으로,<br><span class="gold">평생 보는 내 무의식 설명서.</span></h2>
+
+    <div class="price-card reveal" style="--d:.1s">
+      <p class="anchor">사주 상담 1회 <s>3~5만원</s></p>
+      <div class="price-tag">
+        <span class="num serif-num">8,900</span>
+        <span class="won">원</span>
+      </div>
+      <p class="price-note">런칭 기념가 · 15개 섹션 + 표지 + 월별 캘린더</p>
+
+      <div class="bonus">
+        <span class="plus serif-num">+</span>
+        <div>
+          <p class="bt">구매자 한정 보너스</p>
+          <p class="bd">나만의 정화 선언문 PDF <span class="dim">— 매일 아침 읽는 무의식 정화 문장</span></p>
+        </div>
+      </div>
+
+      <p class="immediacy">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 7 8 6 8-6"/></svg>
+        결제 완료 후 5~10분 이내, 이메일로 도착합니다
+      </p>
+
+      <button class="cta-btn" data-cta>
+        <span class="l1">지금 내 무의식 코드 받기</span>
+        <span class="l2">8,900원 · 결제 즉시 이메일 발송</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ════════════ 섹션 9 · FAQ ════════════ -->
+  <section class="sec wrap" data-screen-label="09 FAQ">
+    <p class="eyebrow reveal">FAQ</p>
+    <h2 class="head reveal" style="--d:.05s">마지막으로,<br>궁금하실 만한 것들.</h2>
+    <div class="faq reveal" style="--d:.1s">
+      <div class="faq-item">
+        <button class="faq-q"><span class="qmark">Q</span>출생시간을 모르면 어떻게 하나요?<span class="plusicon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">신청 폼에서 '모름'을 선택하시면 오시(午時, 정오 12시)로 적용됩니다. 출생시간이 없어도 분석에 큰 지장이 없습니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="qmark">Q</span>보고서는 언제 받나요?<span class="plusicon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">결제 완료 후 5~10분 이내에 입력하신 이메일로 발송됩니다. 스팸함도 꼭 확인해 주세요.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="qmark">Q</span>음력 생일이면 어떻게 입력하나요?<span class="plusicon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">'음력'을 선택하고 음력 날짜를 입력하시면 자동으로 양력으로 변환하여 분석됩니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="qmark">Q</span>일반 사주 앱이랑 어떻게 다른가요?<span class="plusicon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">일반 사주 앱은 운세를 알려줍니다. 라이프코드 해커는 왜 같은 연애·돈·습관이 반복되는지 무의식의 뿌리를 파고듭니다. "귀인을 만납니다" 같은 말은 없습니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="qmark">Q</span>환불이 되나요?<span class="plusicon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">이메일 발송 이전에는 전액 환불이 가능합니다. 발송 후에는 개인 맞춤 디지털 콘텐츠 특성상 청약철회가 제한됩니다.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ 푸터 ════════════ -->
+  <footer class="footer wrap">
+    <p class="mark">構造를 읽는 者가 흐름을 支配한다</p>
+    <p class="disc">
+      본 리포트는 의료·심리 치료를 대체하지 않으며, 결과를 보장하지 않습니다.
+      마음의 패턴을 정돈하고, 변화의 출발점을 제공하는 것을 목적으로 합니다.
+    </p>
+    <p class="legal">
+      라이프코드 해커 · 사주 × 무의식 자동 진단 리포트<br>
+      문의: 스레드 DM<br>
+      (사업자등록번호 / 통신판매업신고 기입 예정)
+    </p>
+  </footer>
+
+</div>
+
+<!-- Tweaks mount -->
+<div id="tweaks-root"></div>
+
+<!-- ════════════ 신청 모달 ════════════ -->
+<div id="modal-overlay" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.85);backdrop-filter:blur(6px);overflow-y:auto;padding:20px 0;">
+  <div id="modal-box" style="background:#0d0d18;border:1px solid rgba(29,224,203,0.25);border-radius:24px;max-width:460px;margin:0 auto;padding:32px 24px;position:relative;">
+
+    <!-- 닫기 -->
+    <button onclick="closeModal()" style="position:absolute;top:16px;right:16px;background:none;border:none;color:#666;font-size:22px;cursor:pointer;line-height:1;">✕</button>
+
+    <p style="text-align:center;font-size:11px;letter-spacing:2px;color:var(--cyan,#1DE0CB);font-weight:700;margin-bottom:8px;">신청서</p>
+    <h3 style="text-align:center;font-size:19px;font-weight:900;color:#fff;margin-bottom:4px;">내 무의식 코드 받기</h3>
+    <p style="text-align:center;font-size:13px;color:#666;margin-bottom:24px;">정보 입력 후 결제하면 5~10분 내 이메일 발송</p>
+
+    <!-- 가격 태그 -->
+    <div style="display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(29,224,203,0.08);border:1px solid rgba(29,224,203,0.2);border-radius:12px;padding:12px;margin-bottom:24px;">
+      <span style="font-size:22px;font-weight:900;color:var(--cyan,#1DE0CB);">₩8,900</span>
+      <span style="font-size:12px;color:#666;">· 결제 후 5~10분 내 이메일 발송</span>
+    </div>
+
+    <form id="saju-form" onsubmit="return false;">
+
+      <!-- 이름 -->
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-size:12px;font-weight:700;color:#888;margin-bottom:6px;">이름</label>
+        <input id="name" type="text" placeholder="홍길동" autocomplete="name" style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#eee;font-size:16px;padding:13px 14px;outline:none;box-sizing:border-box;">
+      </div>
+
+      <!-- 이메일 -->
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-size:12px;font-weight:700;color:#888;margin-bottom:6px;">이메일 <span style="color:var(--cyan,#1DE0CB);">★ 보고서 받을 주소</span></label>
+        <input id="email" type="email" placeholder="example@email.com" autocomplete="email" style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#eee;font-size:16px;padding:13px 14px;outline:none;box-sizing:border-box;">
+      </div>
+
+      <!-- 생년월일 -->
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-size:12px;font-weight:700;color:#888;margin-bottom:6px;">생년월일</label>
+        <input id="birth-year" type="number" placeholder="출생년도 (예: 1990)" min="1930" max="2010" style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#eee;font-size:16px;padding:13px 14px;outline:none;box-sizing:border-box;margin-bottom:8px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <input id="birth-month" type="number" placeholder="월 (1~12)" min="1" max="12" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#eee;font-size:16px;padding:13px 14px;outline:none;width:100%;box-sizing:border-box;">
+          <input id="birth-day" type="number" placeholder="일 (1~31)" min="1" max="31" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#eee;font-size:16px;padding:13px 14px;outline:none;width:100%;box-sizing:border-box;">
+        </div>
+      </div>
+
+      <!-- 양력/음력 -->
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-size:12px;font-weight:700;color:#888;margin-bottom:6px;">양력 / 음력</label>
+        <div style="display:flex;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;overflow:hidden;">
+          <button type="button" id="btn-solar" onclick="setCalendar('solar')" style="flex:1;padding:12px;border:none;background:rgba(29,224,203,0.15);color:var(--cyan,#1DE0CB);font-weight:700;font-size:14px;cursor:pointer;">양력</button>
+          <button type="button" id="btn-lunar" onclick="setCalendar('lunar')" style="flex:1;padding:12px;border:none;background:none;color:#666;font-weight:700;font-size:14px;cursor:pointer;">음력</button>
+        </div>
+        <input type="hidden" id="is-lunar" value="false">
+      </div>
+
+      <!-- 출생시간 -->
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-size:12px;font-weight:700;color:#888;margin-bottom:6px;">출생시간 <span style="font-weight:400;color:#555;">(모르면 '모름' 선택)</span></label>
+        <select id="birth-hour" style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#eee;font-size:16px;padding:13px 14px;outline:none;-webkit-appearance:none;appearance:none;box-sizing:border-box;">
+          <option value="">출생시간 선택</option>
+          <option value="-1">모름 (오시 12:00 적용)</option>
+          <option value="0">자시 (子時) 23:30~01:30</option>
+          <option value="2">축시 (丑時) 01:30~03:30</option>
+          <option value="4">인시 (寅時) 03:30~05:30</option>
+          <option value="6">묘시 (卯時) 05:30~07:30</option>
+          <option value="8">진시 (辰時) 07:30~09:30</option>
+          <option value="10">사시 (巳時) 09:30~11:30</option>
+          <option value="12">오시 (午時) 11:30~13:30</option>
+          <option value="14">미시 (未時) 13:30~15:30</option>
+          <option value="16">신시 (申時) 15:30~17:30</option>
+          <option value="18">유시 (酉時) 17:30~19:30</option>
+          <option value="20">술시 (戌時) 19:30~21:30</option>
+          <option value="22">해시 (亥時) 21:30~23:30</option>
+        </select>
+      </div>
+
+      <!-- 성별 -->
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-size:12px;font-weight:700;color:#888;margin-bottom:6px;">성별</label>
+        <div style="display:flex;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;overflow:hidden;">
+          <button type="button" id="btn-male" onclick="setGender('M')" style="flex:1;padding:12px;border:none;background:rgba(29,224,203,0.15);color:var(--cyan,#1DE0CB);font-weight:700;font-size:14px;cursor:pointer;">남성</button>
+          <button type="button" id="btn-female" onclick="setGender('F')" style="flex:1;padding:12px;border:none;background:none;color:#666;font-weight:700;font-size:14px;cursor:pointer;">여성</button>
+        </div>
+        <input type="hidden" id="gender" value="M">
+      </div>
+
+      <!-- 태어난 도시 -->
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-size:12px;font-weight:700;color:#888;margin-bottom:6px;">태어난 도시 <span style="font-weight:400;color:#555;">(선택 · 입력 시 더 정밀하게 분석)</span></label>
+        <input id="birth-city" type="text" placeholder="예: 서울, 부산, 대구" autocomplete="off" style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#eee;font-size:16px;padding:13px 14px;outline:none;box-sizing:border-box;">
+      </div>
+
+      <!-- 환불 동의 -->
+      <div style="background:rgba(29,224,203,0.05);border:1px solid rgba(29,224,203,0.15);border-radius:12px;padding:14px 16px;margin-bottom:16px;">
+        <p style="font-size:12px;font-weight:800;color:#ccc;margin-bottom:8px;">환불·청약철회 안내</p>
+        <ul style="list-style:none;padding:0;margin:0 0 10px;">
+          <li style="font-size:11.5px;color:#666;line-height:1.8;padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:var(--cyan,#1DE0CB);">·</span>주문 즉시 개별 제작되는 <strong style="color:#aaa;">개인 맞춤형 디지털 콘텐츠</strong>입니다.</li>
+          <li style="font-size:11.5px;color:#666;line-height:1.8;padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:var(--cyan,#1DE0CB);">·</span>이메일 <strong style="color:#aaa;">발송 전</strong>까지 전액 환불 가능합니다.</li>
+          <li style="font-size:11.5px;color:#666;line-height:1.8;padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:var(--cyan,#1DE0CB);">·</span><strong style="color:#aaa;">발송 후</strong>에는 청약철회가 제한됩니다.</li>
+          <li style="font-size:11.5px;color:#666;line-height:1.8;padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:var(--cyan,#1DE0CB);">·</span>시스템 오류 시 <strong style="color:#aaa;">자동 환불</strong>됩니다.</li>
+        </ul>
+        <label style="display:flex;align-items:flex-start;gap:8px;cursor:pointer;padding-top:8px;border-top:1px solid rgba(255,255,255,0.06);">
+          <input type="checkbox" id="consent" style="width:16px;height:16px;margin-top:2px;flex-shrink:0;accent-color:var(--cyan,#1DE0CB);">
+          <span style="font-size:11.5px;color:#666;line-height:1.6;">위 환불 정책 확인 및 발송 후 청약철회 제한에 <strong style="color:var(--cyan,#1DE0CB);">동의합니다.</strong> (필수)</span>
+        </label>
+      </div>
+
+      <!-- 체험 코드 -->
+      <div style="margin-bottom:20px;">
+        <label style="display:block;font-size:11px;color:#555;margin-bottom:6px;">체험 코드 <span style="font-weight:400;">(있는 경우에만 입력)</span></label>
+        <input id="free-code" type="text" placeholder="LCHK-FREE-XXXXXX" autocomplete="off" style="width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;color:#eee;font-size:14px;padding:11px 14px;outline:none;box-sizing:border-box;text-transform:uppercase;">
+      </div>
+
+      <!-- 제출 버튼 -->
+      <button type="submit" id="submit-btn" onclick="handleSubmit()" style="width:100%;background:linear-gradient(135deg,var(--cyan,#1DE0CB),#0fa899);color:#000;font-size:16px;font-weight:900;border:none;border-radius:14px;padding:17px;cursor:pointer;letter-spacing:-0.3px;">
+        ₩8,900 결제하고 보고서 받기 →
+      </button>
+      <p style="text-align:center;font-size:11px;color:#444;margin-top:12px;line-height:1.7;">토스페이먼츠로 안전하게 처리됩니다<br>결제 후 5~10분 내 이메일 발송</p>
+    </form>
+  </div>
+</div>
+
+<!-- 보고서 생성/완료 팝업 -->
+<div id="success-overlay" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.96);flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px;">
+
+  <!-- 신청 완료 -->
+  <div id="so-generating">
+    <div style="font-size:60px;margin-bottom:16px;">✓</div>
+    <h2 style="font-size:23px;font-weight:900;color:#fff;margin-bottom:12px;">신청이 완료되었습니다</h2>
+    <p style="font-size:14px;color:var(--cyan,#1DE0CB);line-height:1.9;">입력하신 이메일로 보고서를 보내드릴게요.<br>잠시 후 메일함(스팸함 포함)을 확인해 주세요.</p>
+    <p style="font-size:12px;color:#666;line-height:1.8;margin-top:10px;">이 창은 닫으셔도 됩니다.</p>
+    <button onclick="closeSuccess()" style="margin-top:22px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#ddd;font-size:14px;border-radius:10px;padding:12px 28px;cursor:pointer;">확인</button>
+  </div>
+
+  <!-- 완료 -->
+  <div id="so-ready" style="display:none;">
+    <div style="font-size:56px;margin-bottom:14px;">🎉</div>
+    <h2 style="font-size:23px;font-weight:900;color:#fff;margin-bottom:6px;">보고서가 준비됐어요!</h2>
+    <p style="font-size:13px;color:#888;margin-bottom:20px;">아래 버튼을 눌러 바로 확인하세요.</p>
+    <a id="so-report-link" href="#" target="_blank" rel="noopener"
+       style="display:inline-block;background:linear-gradient(135deg,var(--cyan,#1DE0CB),#0fa899);color:#000;font-size:16px;font-weight:900;text-decoration:none;border-radius:14px;padding:16px 30px;margin-bottom:26px;">
+      📄 내 보고서 보기
+    </a>
+    <div style="background:linear-gradient(160deg,#15110a,#100d07);border:1px solid rgba(201,164,92,0.35);border-radius:16px;padding:20px 22px;max-width:380px;">
+      <p style="font-size:14px;color:var(--paper,#eee);line-height:1.8;margin:0 0 14px;">
+        보고서가 도움이 되셨다면<br><strong style="color:var(--gold-2,#e8c879);">솔직한 후기</strong>를 남겨주세요. 🙏<br>
+        <span style="font-size:13px;color:#e8c879;">후기를 남겨주시면 <strong>감사 선물(할인코드)</strong>을 드려요. 🎁</span>
+      </p>
+      <button onclick="goWriteReview()" style="width:100%;background:linear-gradient(135deg,#e8c879,#c9a45c);color:#1a1408;font-size:15px;font-weight:900;border:none;border-radius:12px;padding:14px;cursor:pointer;">★ 후기 남기고 선물 받기</button>
+    </div>
+    <button onclick="closeSuccess()" style="margin-top:18px;background:none;border:none;color:#666;font-size:13px;cursor:pointer;text-decoration:underline;">닫기</button>
+  </div>
+
+  <!-- 실패 -->
+  <div id="so-fail" style="display:none;">
+    <div style="font-size:48px;margin-bottom:14px;">⚠️</div>
+    <h2 style="font-size:20px;font-weight:900;color:#fff;margin-bottom:8px;">잠시 문제가 생겼어요</h2>
+    <p style="font-size:13px;color:#888;line-height:1.8;">보고서 생성에 실패했습니다.<br>잠시 후 다시 시도해 주세요.</p>
+    <button onclick="closeSuccess()" style="margin-top:18px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#ddd;font-size:14px;border-radius:10px;padding:12px 24px;cursor:pointer;">닫기</button>
+  </div>
+</div>
+<style>@keyframes sopulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.92)}}</style>
+
+<!-- ════════════ 후기 작성 모달 ════════════ -->
+<div id="review-modal" style="display:none;position:fixed;inset:0;z-index:9100;background:rgba(0,0,0,0.88);backdrop-filter:blur(6px);overflow-y:auto;padding:20px 0;">
+  <div style="background:#0d0d18;border:1px solid rgba(201,164,92,0.25);border-radius:24px;max-width:460px;margin:0 auto;padding:32px 24px;position:relative;">
+    <button onclick="closeReviewModal()" style="position:absolute;top:16px;right:16px;background:none;border:none;color:#666;font-size:22px;cursor:pointer;line-height:1;">✕</button>
+
+    <p style="text-align:center;font-size:11px;letter-spacing:2px;color:var(--gold-2);font-weight:700;margin-bottom:8px;">REVIEW</p>
+    <h3 style="text-align:center;font-size:19px;font-weight:900;color:var(--paper);margin-bottom:20px;letter-spacing:-0.02em;">솔직한 후기를 남겨주세요</h3>
+
+    <!-- 별점 -->
+    <div style="margin-bottom:16px;">
+      <label style="display:block;font-size:11px;font-weight:700;color:var(--paper-faint);letter-spacing:0.2em;margin-bottom:10px;">별점</label>
+      <div id="rv-star-pick" style="display:flex;gap:8px;font-size:34px;cursor:pointer;">
+        <span data-v="1" style="color:#2a2a3a;transition:color 0.12s;">★</span>
+        <span data-v="2" style="color:#2a2a3a;transition:color 0.12s;">★</span>
+        <span data-v="3" style="color:#2a2a3a;transition:color 0.12s;">★</span>
+        <span data-v="4" style="color:#2a2a3a;transition:color 0.12s;">★</span>
+        <span data-v="5" style="color:#2a2a3a;transition:color 0.12s;">★</span>
+      </div>
+    </div>
+
+    <!-- 이름 -->
+    <div style="margin-bottom:14px;">
+      <label style="display:block;font-size:11px;font-weight:700;color:var(--paper-faint);letter-spacing:0.2em;margin-bottom:8px;">닉네임</label>
+      <input id="rv-name" type="text" maxlength="20" placeholder="표시될 이름 (최대 20자)" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:var(--paper);font-size:15px;padding:13px 14px;outline:none;box-sizing:border-box;font-family:var(--font-main);">
+    </div>
+
+    <!-- 후기 내용 -->
+    <div style="margin-bottom:20px;">
+      <label style="display:block;font-size:11px;font-weight:700;color:var(--paper-faint);letter-spacing:0.2em;margin-bottom:8px;">후기 내용</label>
+      <textarea id="rv-text" maxlength="500" placeholder="보고서를 받아본 솔직한 후기를 남겨주세요 (최대 500자)" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:var(--paper);font-size:14px;padding:13px 14px;outline:none;resize:vertical;min-height:100px;line-height:1.8;box-sizing:border-box;font-family:var(--font-main);"></textarea>
+    </div>
+
+    <button id="rv-submit-btn" onclick="submitReview()" style="width:100%;background:linear-gradient(135deg,var(--gold-2),var(--gold-3));color:#1a1408;font-size:16px;font-weight:900;border:none;border-radius:14px;padding:16px;cursor:pointer;font-family:var(--font-main);">후기 등록하기</button>
+    <div id="rv-msg" style="text-align:center;font-size:13px;margin-top:12px;min-height:18px;"></div>
+  </div>
+</div>
+
+<!-- ════════════ 플로팅 CTA ════════════ -->
+<div class="floating" id="floating">
+  <button class="floating-btn" data-cta>
+    <span class="fl">
+      <span class="a">지금 내 무의식 코드 받기</span>
+      <span class="b">결제 즉시 이메일 발송</span>
+    </span>
+    <span class="price serif-num">8,900</span>
+  </button>
+</div>
+
+<script src="https://unpkg.com/lucide@0.471.0/dist/umd/lucide.min.js"></script>
+<script type="text/babel" src="lifecode/tweaks-panel.jsx"></script>
+<script type="text/babel">
+  /* ── Tweaks 패널 ── */
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "bodySize": 17,
+    "headScale": "작게",
+    "spacing": "보통",
+    "pageWidth": "480",
+    "font": "명조",
+    "ctaColor": "#1DE0CB"
+  }/*EDITMODE-END*/;
+
+  const R = document.documentElement;
+  const HEAD_MAP   = { "작게": 0.85, "보통": 1, "크게": 1.18 };
+  const SPACE_MAP  = { "촘촘": 52,   "보통": 78, "여유": 110  };
+  const CTA_OPTIONS = ["#1DE0CB","#FF6B6B","#C9A45C","#A78BFA"];
+  const FONT_MAP   = {
+    "명조": "'Noto Serif KR', serif",
+    "고딕": "'Noto Sans KR', -apple-system, sans-serif"
+  };
+
+  function apply(t) {
+    R.style.setProperty('--body-size',   t.bodySize   + 'px');
+    R.style.setProperty('--head-scale',  HEAD_MAP[t.headScale]  ?? 1);
+    R.style.setProperty('--sec-pad',     (SPACE_MAP[t.spacing] ?? 78) + 'px');
+    R.style.setProperty('--maxw',        t.pageWidth  + 'px');
+    R.style.setProperty('--font-main',   FONT_MAP[t.font] ?? FONT_MAP['명조']);
+    /* CTA 파생 색상 */
+    const hex = t.ctaColor;
+    R.style.setProperty('--cyan',        hex);
+    R.style.setProperty('--cyan-bright', hex + 'DD');
+    R.style.setProperty('--cyan-deep',   hex + 'AA');
+    R.style.setProperty('--cyan-glow',   hex + '55');
+  }
+
+  function TweaksApp() {
+    const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+    React.useEffect(() => apply(t), [t]);
+    return (
+      <TweaksPanel title="Tweaks">
+        <TweakSection label="타이포그래피" />
+        <TweakSlider  label="본문 크기" value={t.bodySize} min={13} max={21} step={0.5} unit="px"
+                      onChange={v => setTweak('bodySize', v)} />
+        <TweakRadio   label="제목 크기" value={t.headScale}
+                      options={["작게","보통","크게"]}
+                      onChange={v => setTweak('headScale', v)} />
+        <TweakRadio   label="글꼴" value={t.font}
+                      options={["명조","고딕"]}
+                      onChange={v => setTweak('font', v)} />
+        <TweakSection label="구조" />
+        <TweakRadio   label="섹션 간격" value={t.spacing}
+                      options={["촘촘","보통","여유"]}
+                      onChange={v => setTweak('spacing', v)} />
+        <TweakRadio   label="페이지 너비" value={t.pageWidth}
+                      options={["360","420","480","540"]}
+                      onChange={v => setTweak('pageWidth', v)} />
+        <TweakSection label="색상" />
+        <TweakColor   label="CTA 색상" value={t.ctaColor}
+                      options={CTA_OPTIONS}
+                      onChange={v => setTweak('ctaColor', v)} />
+      </TweaksPanel>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<TweaksApp />);
+</script>
+<script>
+  if (window.lucide) lucide.createIcons();
+
+  // ════════════ 후기 시스템 ════════════
+  let allReviews = [];
+  let shownCount = 0;
+  const REVIEWS_PER_PAGE = 4;
+
+  function starsHtml(rating, size = 14) {
+    return Array.from({length: 5}, (_, i) =>
+      `<span style="color:${i < rating ? 'var(--gold-2)' : '#2a2a3a'};font-size:${size}px;">★</span>`
+    ).join('');
+  }
+
+  function renderReviewCard(r) {
+    const nameParts = (r.name || '익명').trim();
+    const masked = nameParts.length > 1
+      ? nameParts[0] + '*'.repeat(nameParts.length - 1)
+      : nameParts;
+    return `
+      <div style="background:linear-gradient(160deg,#0e0e1a,#0c0c13);border:1px solid var(--gold-line);border-radius:14px;padding:18px 20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+          <span style="font-weight:700;font-size:14.5px;color:var(--paper);">${masked}</span>
+          <span>${starsHtml(r.rating)}</span>
+        </div>
+        <p style="font-size:14px;line-height:1.82;color:var(--paper-dim);margin:0 0 10px;word-break:keep-all;">${(r.text || '').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</p>
+        <span style="font-size:11px;color:var(--paper-faint);">${(r.date || '').slice(0, 10)}</span>
+      </div>`;
+  }
+
+  function showMoreReviews() {
+    const list = document.getElementById('rv-list');
+    const next = allReviews.slice(shownCount, shownCount + REVIEWS_PER_PAGE);
+    next.forEach(r => list.insertAdjacentHTML('beforeend', renderReviewCard(r)));
+    shownCount += next.length;
+    if (shownCount >= allReviews.length) {
+      document.getElementById('rv-more-wrap').style.display = 'none';
+    }
+  }
+
+  async function loadReviews() {
+    try {
+      const res = await fetch(BACKEND_URL + '/api/reviews');
+      allReviews = await res.json();
+    } catch(e) { allReviews = []; }
+
+    const list = document.getElementById('rv-list');
+    list.innerHTML = '';
+
+    if (!allReviews.length) {
+      list.innerHTML = `<div style="text-align:center;padding:28px 0;color:var(--paper-faint);font-size:14px;line-height:1.8;">아직 후기가 없어요.<br>첫 번째 후기를 남겨주시면 감사합니다!</div>`;
+      return;
+    }
+
+    // 요약
+    const avg = (allReviews.reduce((s, r) => s + (r.rating || 5), 0) / allReviews.length).toFixed(1);
+    document.getElementById('rv-avg').textContent = avg;
+    document.getElementById('rv-stars-avg').innerHTML = starsHtml(Math.round(avg), 16);
+    document.getElementById('rv-count').textContent = `총 ${allReviews.length}개의 후기`;
+    document.getElementById('rv-summary').style.display = 'block';
+
+    // 초기 카드
+    shownCount = 0;
+    showMoreReviews();
+    if (allReviews.length > REVIEWS_PER_PAGE) {
+      document.getElementById('rv-more-wrap').style.display = 'block';
+    }
+  }
+  loadReviews();
+
+  // ── 후기 모달 ──
+  let rvRating = 5;
+
+  function openReviewModal() {
+    rvRating = 5;
+    paintStars(rvRating);
+    document.getElementById('rv-name').value = '';
+    document.getElementById('rv-text').value = '';
+    document.getElementById('rv-msg').textContent = '';
+    document.getElementById('rv-submit-btn').disabled = false;
+    document.getElementById('rv-submit-btn').textContent = '후기 등록하기';
+    document.getElementById('review-modal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeReviewModal() {
+    document.getElementById('review-modal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  document.getElementById('review-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeReviewModal();
+  });
+
+  function paintStars(v) {
+    document.querySelectorAll('#rv-star-pick span').forEach(s => {
+      s.style.color = parseInt(s.dataset.v) <= v ? 'var(--gold-2)' : '#2a2a3a';
+    });
+  }
+  document.querySelectorAll('#rv-star-pick span').forEach(s => {
+    s.addEventListener('click', () => { rvRating = parseInt(s.dataset.v); paintStars(rvRating); });
+    s.addEventListener('mouseenter', () => paintStars(parseInt(s.dataset.v)));
+  });
+  document.getElementById('rv-star-pick').addEventListener('mouseleave', () => paintStars(rvRating));
+  paintStars(rvRating);
+
+  async function submitReview() {
+    const name = document.getElementById('rv-name').value.trim();
+    const text = document.getElementById('rv-text').value.trim();
+    const msg  = document.getElementById('rv-msg');
+    if (!name)          { msg.style.color='#f87171'; msg.textContent='닉네임을 입력해 주세요.'; return; }
+    if (text.length < 5){ msg.style.color='#f87171'; msg.textContent='5자 이상의 후기를 입력해 주세요.'; return; }
+    const btn = document.getElementById('rv-submit-btn');
+    btn.disabled = true; btn.textContent = '등록 중...';
+    msg.style.color = 'var(--paper-faint)'; msg.textContent = '';
+    try {
+      const res = await fetch(BACKEND_URL + '/api/reviews', {
+        method: 'POST', headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ name, text, rating: rvRating }),
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        msg.style.color = '#4ade80';
+        msg.innerHTML = '소중한 후기 감사합니다! 🙏<br><br>'
+          + '🎁 <b>감사 선물 할인코드</b><br>'
+          + '<b style="font-size:20px;color:#e8c879;letter-spacing:1px;">REVIEW2026</b><br>'
+          + '<span style="font-size:12px;color:#999;">소중한 분께 선물하거나 다음 신청에 사용하세요.<br>(바깥을 누르면 창이 닫혀요)</span>';
+        btn.textContent = '✓ 등록 완료';
+        loadReviews();
+      } else {
+        msg.style.color = '#f87171'; msg.textContent = data.error || '등록에 실패했습니다.';
+        btn.disabled = false; btn.textContent = '후기 등록하기';
+      }
+    } catch(e) {
+      msg.style.color = '#f87171'; msg.textContent = '네트워크 오류가 발생했습니다.';
+      btn.disabled = false; btn.textContent = '후기 등록하기';
+    }
+  }
+
+  // 스크롤 등장
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+
+  // 플로팅 CTA — 히어로 벗어나면 등장
+  const floating = document.getElementById('floating');
+  const hero = document.querySelector('.hero');
+  const heroIO = new IntersectionObserver(([e]) => {
+    floating.classList.toggle('show', !e.isIntersecting);
+  }, { threshold: 0.35 });
+  heroIO.observe(hero);
+
+  // 섹션 7·8 도달 시 강조 전환
+  const emphIO = new IntersectionObserver((entries) => {
+    if (entries.some(e => e.isIntersecting)) floating.classList.add('emph');
+  }, { threshold: 0.25 });
+  ['#who', '#price'].forEach(s => emphIO.observe(document.querySelector(s)));
+
+  // FAQ 아코디언
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const a = item.querySelector('.faq-a');
+      const open = item.classList.toggle('open');
+      a.style.maxHeight = open ? a.scrollHeight + 'px' : 0;
+    });
+  });
+
+  // CTA 클릭 → 모달 열기
+  document.querySelectorAll('[data-cta]').forEach(b => {
+    b.addEventListener('click', (ev) => {
+      if (b.tagName === 'A') return;
+      ev.preventDefault();
+      openModal();
+    });
+  });
+</script>
+
+<!-- 토스페이먼츠 SDK -->
+<script src="https://js.tosspayments.com/v2/standard"></script>
+
+<script>
+// ★★★ 여기 두 줄만 실제 값으로 교체하세요 ★★★
+const BACKEND_URL     = 'https://lifecode-hacker1.onrender.com';
+const TOSS_CLIENT_KEY = 'test_ck_5OWRapdA8db11oa9MEARVo1zEqZK';  // 토스 클라이언트 키
+// ★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+function openModal() {
+  const m = document.getElementById('modal-overlay');
+  m.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal-overlay').style.display = 'none';
+  document.body.style.overflow = '';
+}
+// 오버레이 바깥 클릭 시 닫기
+document.getElementById('modal-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// 양력/음력 토글
+function setCalendar(type) {
+  document.getElementById('is-lunar').value = (type === 'lunar').toString();
+  document.getElementById('btn-solar').style.background = type === 'solar' ? 'rgba(29,224,203,0.15)' : 'none';
+  document.getElementById('btn-solar').style.color = type === 'solar' ? 'var(--cyan,#1DE0CB)' : '#666';
+  document.getElementById('btn-lunar').style.background = type === 'lunar' ? 'rgba(29,224,203,0.15)' : 'none';
+  document.getElementById('btn-lunar').style.color = type === 'lunar' ? 'var(--cyan,#1DE0CB)' : '#666';
+}
+// 성별 토글
+function setGender(g) {
+  document.getElementById('gender').value = g;
+  document.getElementById('btn-male').style.background   = g === 'M' ? 'rgba(29,224,203,0.15)' : 'none';
+  document.getElementById('btn-male').style.color        = g === 'M' ? 'var(--cyan,#1DE0CB)' : '#666';
+  document.getElementById('btn-female').style.background = g === 'F' ? 'rgba(29,224,203,0.15)' : 'none';
+  document.getElementById('btn-female').style.color      = g === 'F' ? 'var(--cyan,#1DE0CB)' : '#666';
+}
+
+async function handleSubmit() {
+  const name     = document.getElementById('name').value.trim();
+  const email    = document.getElementById('email').value.trim();
+  const year     = parseInt(document.getElementById('birth-year').value);
+  const month    = parseInt(document.getElementById('birth-month').value);
+  const day      = parseInt(document.getElementById('birth-day').value);
+  const hourRaw  = document.getElementById('birth-hour').value;
+  const isLunar  = document.getElementById('is-lunar').value === 'true';
+  const gender   = document.getElementById('gender').value;
+  const city     = document.getElementById('birth-city').value.trim();
+  const freeCode = document.getElementById('free-code').value.trim();
+  const consent  = document.getElementById('consent').checked;
+  const btn      = document.getElementById('submit-btn');
+
+  // 유효성 검사
+  if (!name || !email || !year || !month || !day || hourRaw === '') {
+    alert('모든 항목을 입력해 주세요.'); return;
+  }
+  if (year < 1930 || year > 2010) { alert('생년도를 다시 확인해 주세요.'); return; }
+  if (!consent) {
+    alert('환불·청약철회 안내에 동의하셔야 결제를 진행할 수 있습니다.'); return;
+  }
+
+  const hour = parseInt(hourRaw) === -1 ? 11 : parseInt(hourRaw);
+  btn.disabled = true;
+  btn.textContent = '처리 중...';
+
+  // ── 체험 코드 분기 ──
+  if (freeCode) {
+    try {
+      const res = await fetch(`${BACKEND_URL}/api/free-report`, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ code:freeCode, name, email, year, month, day, hour, minute:0, gender, is_lunar:isLunar, city }),
+      });
+      const result = await res.json();
+      if (res.ok && result.success) {
+        closeModal();
+        showGenerating();
+        if (result.token) pollReportReady(result.token);
+      } else {
+        alert(result.error || '체험 보고서 발송에 실패했습니다.');
+        btn.disabled = false; btn.textContent = '₩8,900 결제하고 보고서 받기 →';
+      }
+    } catch(e) {
+      alert('네트워크 오류가 발생했습니다. 다시 시도해 주세요.');
+      btn.disabled = false; btn.textContent = '₩8,900 결제하고 보고서 받기 →';
+    }
+    return;
+  }
+
+  // ── 토스페이먼츠 결제 ──
+  const orderId = 'LCHK-' + Date.now() + '-' + Math.random().toString(36).slice(2,8).toUpperCase();
+  sessionStorage.setItem('saju_order', JSON.stringify({ orderId, name, email, year, month, day, hour, minute:0, gender, is_lunar:isLunar, city }));
+
+  try {
+    const tossPayments = TossPayments(TOSS_CLIENT_KEY);
+    const payment = tossPayments.payment({ customerKey: email });
+    await payment.requestPayment({
+      method: 'CARD',
+      amount: { currency:'KRW', value:8900 },
+      orderId,
+      orderName: '라이프코드 해커 — 사주 무의식 패턴 보고서',
+      customerEmail: email,
+      customerName: name,
+      successUrl: window.location.origin + '/payment-success',
+      failUrl:    window.location.origin + '/payment-fail',
+    });
+  } catch(err) {
+    if (err.code !== 'USER_CANCEL') alert('결제 중 오류가 발생했습니다. 다시 시도해 주세요.');
+    btn.disabled = false; btn.textContent = '₩8,900 결제하고 보고서 받기 →';
+  }
+}
+
+function showGenerating() {
+  const el = document.getElementById('success-overlay');
+  el.style.display = 'flex';
+  document.getElementById('so-generating').style.display = 'block';
+  document.getElementById('so-ready').style.display = 'none';
+  document.getElementById('so-fail').style.display = 'none';
+}
+function closeSuccess() {
+  document.getElementById('success-overlay').style.display = 'none';
+}
+function goWriteReview() {
+  closeSuccess();
+  if (typeof openReviewModal === 'function') openReviewModal();
+  else location.href = '#reviews';
+}
+function pollReportReady(token) {
+  // 신청 완료 화면은 그대로 두고, 보고서가 준비되면 조용히 '보고서 보기' 버튼만 추가.
+  const started = Date.now();
+  const poll = setInterval(async () => {
+    try {
+      const r = await fetch(`${BACKEND_URL}/api/report-ready/${token}`);
+      const d = await r.json();
+      if (d.ready) {
+        clearInterval(poll);
+        const link = document.getElementById('so-report-link');
+        link.href = BACKEND_URL + d.url;
+        document.getElementById('so-generating').style.display = 'none';
+        document.getElementById('so-fail').style.display = 'none';
+        document.getElementById('so-ready').style.display = 'block';
+      } else if (Date.now() - started > 15*60*1000) {
+        clearInterval(poll);
+      }
+    } catch(e) { /* 일시 오류 무시, 계속 폴링 */ }
+  }, 5000);
+}
+</script>
+</body>
+</html>

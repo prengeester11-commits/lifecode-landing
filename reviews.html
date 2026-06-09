@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>실제 후기 — 라이프코드 해커</title>
+<meta name="description" content="라이프코드 해커 사주 무의식 보고서를 직접 받아본 분들의 솔직한 후기 모음.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0a12; --bg2:#13111d; --line:rgba(255,255,255,0.08);
+    --paper:#ece8f0; --paper-faint:#9a93b0;
+    --gold:#c9a45c; --gold-2:#e8c879; --gold-3:#c9a45c; --gold-line:rgba(201,164,92,0.4);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--bg); color:var(--paper);
+    font-family:'Noto Sans KR',-apple-system,sans-serif;
+    line-height:1.8; -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(1200px 500px at 50% -10%, rgba(201,164,92,0.08), transparent);
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 22px;}
+  .eyebrow{font-size:12px;letter-spacing:0.32em;color:var(--gold);font-weight:700;text-align:center;}
+  .gold{color:var(--gold-2);}
+
+  /* 헤더 */
+  header{text-align:center;padding:54px 0 30px;}
+  header h1{font-size:27px;font-weight:900;line-height:1.5;margin:16px 0 0;letter-spacing:-0.02em;word-break:keep-all;}
+  header p.sub{font-size:14px;color:var(--paper-faint);margin-top:14px;word-break:keep-all;}
+
+  /* 평점 요약 */
+  .summary{
+    display:flex;align-items:center;justify-content:center;gap:18px;
+    margin:26px auto 8px;max-width:380px;
+    background:linear-gradient(160deg,#1a1626,#12101b);
+    border:1px solid var(--gold-line);border-radius:18px;padding:20px 24px;
+  }
+  .summary .big{font-size:42px;font-weight:900;color:var(--gold-2);line-height:1;}
+  .summary .stars{font-size:18px;color:var(--gold-2);letter-spacing:2px;}
+  .summary .cnt{font-size:13px;color:var(--paper-faint);margin-top:4px;}
+
+  /* 후기 목록 */
+  #list{margin:26px 0 10px;display:flex;flex-direction:column;gap:13px;}
+  .rv{
+    background:linear-gradient(160deg,#15131f,#100f18);
+    border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;
+  }
+  .rv-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;}
+  .rv-name{font-size:14px;font-weight:700;color:var(--paper);}
+  .rv-stars{font-size:13px;color:var(--gold-2);letter-spacing:1px;}
+  .rv-text{font-size:14px;color:#d8d3e4;line-height:1.85;word-break:keep-all;white-space:pre-line;}
+  .rv-date{font-size:11px;color:#6f6a82;margin-top:10px;}
+  .empty{text-align:center;color:var(--paper-faint);font-size:14px;padding:40px 0;line-height:1.9;}
+
+  /* CTA */
+  .cta-zone{text-align:center;margin:34px 0;}
+  .cta{
+    display:inline-block;width:100%;max-width:420px;
+    background:linear-gradient(135deg,var(--gold-2),var(--gold-3));
+    color:#1a1408;font-size:17px;font-weight:900;text-decoration:none;
+    border-radius:16px;padding:18px 20px;box-shadow:0 10px 30px rgba(201,164,92,0.25);
+  }
+  .cta-sub{font-size:13px;color:var(--paper-faint);margin-top:12px;word-break:keep-all;}
+  .ornament{width:46px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:30px auto;}
+
+  footer{text-align:center;padding:30px 0 44px;color:#5b566e;font-size:11.5px;line-height:1.9;}
+  footer b{color:var(--gold);font-weight:700;}
+
+  @media(max-width:480px){
+    header h1{font-size:23px;}
+    .summary{gap:14px;padding:18px;}
+    .summary .big{font-size:36px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">REAL REVIEWS</p>
+    <h1>먼저 받아보신 분들의<br><span class="gold">솔직한 후기.</span></h1>
+    <p class="sub">광고가 아니라, 보고서를 직접 받아본 분들이<br>직접 남긴 진짜 후기입니다.</p>
+  </header>
+
+  <div class="summary" id="summary" style="display:none;">
+    <div>
+      <div class="big" id="avg">0.0</div>
+      <div class="stars" id="avg-stars">★★★★★</div>
+    </div>
+    <div>
+      <div style="font-size:14px;font-weight:700;color:var(--paper);">실제 이용 후기</div>
+      <div class="cnt" id="cnt">총 0개</div>
+    </div>
+  </div>
+
+  <!-- 상단 CTA -->
+  <div class="cta-zone">
+    <a class="cta" href="/index.html">나도 내 보고서 받아보기 →</a>
+    <p class="cta-sub">아래 후기를 먼저 읽어보고 결정하셔도 좋아요.</p>
+  </div>
+
+  <div class="ornament"></div>
+
+  <div id="list">
+    <div class="empty">후기를 불러오는 중...</div>
+  </div>
+
+  <!-- 하단 CTA -->
+  <div class="cta-zone">
+    <p class="cta-sub" style="margin-bottom:14px;">이 후기들처럼, 당신만의 무의식 패턴 보고서를 받아보세요.</p>
+    <a class="cta" href="/index.html">₩8,900 · 내 보고서 신청하기 →</a>
+  </div>
+
+  <footer>
+    <b>라이프코드 해커</b><br>
+    사주명리와 무의식 정화 통합 분석<br>
+    보고서는 참고용이며, 최종 선택과 결정은 항상 당신이 합니다.
+  </footer>
+
+</div>
+
+<script>
+const BACKEND_URL = 'https://lifecode-hacker1.onrender.com';
+
+function stars(n){ n=Math.max(1,Math.min(5,Math.round(n||5))); return '★'.repeat(n)+'☆'.repeat(5-n); }
+function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+async function loadReviews(){
+  const list = document.getElementById('list');
+  try{
+    const res = await fetch(BACKEND_URL + '/api/reviews');
+    const data = await res.json();
+    const reviews = Array.isArray(data) ? data : [];
+    if(reviews.length === 0){
+      list.innerHTML = '<div class="empty">아직 후기가 없어요.<br>첫 번째 주인공이 되어주세요!</div>';
+      return;
+    }
+    // 평점 요약
+    const avg = (reviews.reduce((s,r)=>s+(r.rating||5),0)/reviews.length);
+    document.getElementById('summary').style.display = 'flex';
+    document.getElementById('avg').textContent = avg.toFixed(1);
+    document.getElementById('avg-stars').textContent = stars(avg);
+    document.getElementById('cnt').textContent = '총 ' + reviews.length + '개';
+    // 목록 (최신순)
+    reviews.sort((a,b)=> (b.date||'').localeCompare(a.date||''));
+    list.innerHTML = reviews.map(r => `
+      <div class="rv">
+        <div class="rv-top">
+          <span class="rv-name">${esc(r.name)}</span>
+          <span class="rv-stars">${stars(r.rating)}</span>
+        </div>
+        <div class="rv-text">${esc(r.text)}</div>
+        ${r.date ? `<div class="rv-date">${esc(r.date)}</div>` : ''}
+      </div>
+    `).join('');
+  }catch(e){
+    list.innerHTML = '<div class="empty">후기를 불러오지 못했어요.<br>잠시 후 새로고침해 주세요.</div>';
+  }
+}
+loadReviews();
+</script>
+</body>
+</html>

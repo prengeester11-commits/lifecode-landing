@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>결제 완료 — 라이프코드 해커</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:#07070f;color:#e8e8f4;
+    font-family:'Noto Sans KR',sans-serif;
+    min-height:100vh;display:flex;align-items:center;justify-content:center;
+    text-align:center;padding:40px 20px;
+  }
+  .card{
+    background:#0e0e1e;
+    border:1px solid rgba(167,139,250,0.2);
+    border-radius:24px;
+    padding:40px 28px;
+    max-width:440px;width:100%;
+  }
+  .spinner{
+    width:48px;height:48px;
+    border:3px solid rgba(167,139,250,0.2);
+    border-top-color:#a78bfa;
+    border-radius:50%;
+    animation:spin .8s linear infinite;
+    margin:0 auto 24px;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+  h1{font-size:21px;font-weight:900;color:#fff;margin-bottom:10px;}
+  #status-msg{font-size:14px;color:#8888aa;line-height:1.9;white-space:pre-line;}
+  .report-btn{
+    display:inline-block;margin-top:24px;
+    background:linear-gradient(135deg,#1DE0CB,#0fa899);
+    color:#000;font-weight:900;font-size:16px;
+    padding:16px 30px;border-radius:14px;text-decoration:none;
+  }
+  .review-box{
+    margin-top:26px;background:linear-gradient(160deg,#15110a,#100d07);
+    border:1px solid rgba(201,164,92,0.35);border-radius:16px;padding:20px 22px;
+  }
+  .review-box p{font-size:14px;color:#eee;line-height:1.8;margin-bottom:14px;}
+  .review-btn{
+    display:inline-block;width:100%;
+    background:linear-gradient(135deg,#e8c879,#c9a45c);
+    color:#1a1408;font-weight:900;font-size:15px;
+    padding:14px;border-radius:12px;text-decoration:none;
+  }
+  .home-btn{display:inline-block;margin-top:18px;color:#666;font-size:13px;text-decoration:underline;}
+</style>
+</head>
+<body>
+<div class="card">
+  <!-- 진행 중 -->
+  <div id="loading-area">
+    <div class="spinner"></div>
+    <h1>결제 확인 중...</h1>
+    <p id="status-msg">보고서를 준비하고 있습니다.\n잠시만 기다려 주세요.</p>
+  </div>
+
+  <!-- 완료 -->
+  <div id="ready-area" style="display:none;">
+    <div style="font-size:56px;margin-bottom:12px;">🎉</div>
+    <h1>보고서가 준비됐어요!</h1>
+    <p style="font-size:13px;color:#888;">아래 버튼을 눌러 바로 확인하세요.</p>
+    <a id="report-link" class="report-btn" href="#" target="_blank" rel="noopener">📄 내 보고서 보기</a>
+    <div class="review-box">
+      <p>보고서가 도움이 되셨다면<br><strong style="color:#e8c879;">솔직한 후기</strong>를 남겨주세요. 🙏</p>
+      <a class="review-btn" href="/#reviews">★ 후기 남기기</a>
+    </div>
+    <a href="/" class="home-btn">홈으로 돌아가기</a>
+  </div>
+
+  <!-- 오류 -->
+  <div id="error-area" style="display:none;">
+    <div style="font-size:48px;margin-bottom:14px;">⚠️</div>
+    <h1 id="err-title">오류가 발생했습니다</h1>
+    <p id="err-msg" style="font-size:14px;color:#8888aa;line-height:1.9;margin-top:8px;"></p>
+    <a href="/" class="home-btn">홈으로 돌아가기</a>
+  </div>
+</div>
+
+<script>
+const BACKEND_URL = 'https://lifecode-hacker1.onrender.com';
+
+function showError(title, msg) {
+  document.getElementById('loading-area').style.display = 'none';
+  document.getElementById('ready-area').style.display = 'none';
+  document.getElementById('error-area').style.display = 'block';
+  document.getElementById('err-title').textContent = title;
+  document.getElementById('err-msg').textContent = msg;
+}
+
+function pollReport(token) {
+  // 결제 완료 화면을 즉시 보여주고, 보고서는 이메일로 전달. 준비되면 조용히 버튼만 추가.
+  const spinner = document.querySelector('#loading-area .spinner');
+  if (spinner) spinner.style.display = 'none';
+  document.querySelector('#loading-area h1').textContent = '결제가 완료되었습니다';
+  const statusEl = document.getElementById('status-msg');
+  if (statusEl) statusEl.textContent = '입력하신 이메일로 보고서를 보내드릴게요.\n잠시 후 메일함(스팸함 포함)을 확인해 주세요.';
+  const started = Date.now();
+  const poll = setInterval(async () => {
+    try {
+      const r = await fetch(`${BACKEND_URL}/api/report-ready/${token}`);
+      const d = await r.json();
+      if (d.ready) {
+        clearInterval(poll);
+        document.getElementById('loading-area').style.display = 'none';
+        document.getElementById('report-link').href = BACKEND_URL + d.url;
+        document.getElementById('ready-area').style.display = 'block';
+      } else if (d.error) {
+        clearInterval(poll);
+        showError('보고서 생성 실패', '결제는 자동 환불됩니다. 잠시 후 다시 시도해 주세요.');
+      } else if (Date.now() - started > 15*60*1000) {
+        clearInterval(poll);
+      }
+    } catch(e) { /* 일시 오류 무시 */ }
+  }, 5000);
+}
+
+async function confirmPayment() {
+  const params     = new URLSearchParams(location.search);
+  const paymentKey = params.get('paymentKey');
+  const orderId    = params.get('orderId');
+  const amount     = params.get('amount');
+  const orderData  = JSON.parse(sessionStorage.getItem('saju_order') || '{}');
+
+  if (!paymentKey || !orderId || !amount || !orderData.name) {
+    showError('⚠️ 오류', '결제 정보를 찾을 수 없습니다. 다시 시도하거나 문의해 주세요.');
+    return;
+  }
+
+  try {
+    const res = await fetch(`${BACKEND_URL}/api/payment/confirm`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        paymentKey, orderId, amount: parseInt(amount),
+        name: orderData.name, email: orderData.email,
+        year: orderData.year, month: orderData.month, day: orderData.day,
+        hour: orderData.hour, minute: 0, gender: orderData.gender,
+        is_lunar: orderData.is_lunar, city: orderData.city || '',
+      }),
+    });
+    const result = await res.json();
+    if (res.ok && result.success) {
+      sessionStorage.removeItem('saju_order');
+      if (result.token) pollReport(result.token);
+      else showError('접수 완료', '보고서를 준비 중입니다.');
+    } else {
+      showError('⚠️ 오류 발생', result.error || '결제 확인 중 오류가 발생했습니다.');
+    }
+  } catch (err) {
+    showError('⚠️ 네트워크 오류', '잠시 후 다시 시도해 주세요. 문제가 계속되면 문의해 주세요.');
+  }
+}
+
+confirmPayment();
+</script>
+</body>
+</html>

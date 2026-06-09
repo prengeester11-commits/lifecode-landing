@@ -1,0 +1,7 @@
+lifecoder-hacker/
+_deploy/
+sample_out/
+*.zip
+__pycache__/
+.buildtest/
+deploy.zip
